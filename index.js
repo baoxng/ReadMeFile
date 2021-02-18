@@ -7,9 +7,9 @@ const generateMarkdown = require('./utilities/generateMarkdown');
 const prompts = [
     {
         type: 'input',
-        message: "",
-        name: '',
-        default: '',
+        message: 'What is your Github username?',
+        name: 'username',
+        default: 'baoxng',
         validate: function(answer) {
             if (answer.length < 1){
                 return console.log('Must have a valid GitHub username.')
@@ -18,7 +18,45 @@ const prompts = [
             }
     },
     {
+        type: 'input',
+        message: 'What is your Github repo title?',
+        name: 'repo',
+        default: 'ReadMe-Generator',
+        validate: function(answer) {
+        if (answer.length < 1){
+            return console.log('Must have a valid GitHub repo for badge.')
+        }
+        return true; 
+        }
 
-    }   
+    },
+    {
+        type: 'input',
+        message: 'Write a brief description of your project.',
+        name: 'description',
+        default: 'Description',
+        validate: function(answer) {
+        if (answer.length < 1){
+            return console.log('Must have a valid description.')
+        }
+        return true; 
+        }
+
+    },
+    {
+        type: 'input',
+        message: 'What are the steps to install your project? (Be detailed)',
+        default: 'installation',
+    },
+    {
+        type: 'input',
+        message: 'Provide detail usage and example of your repo in this section.',
+        default: 'usage',
+    },   
+    {
+        type: 'input',
+        message: 'Provide details on contributors and how others can contribute to your project.',
+        default: 'usage',
+    },         
 ]
 
