@@ -51,12 +51,24 @@ const prompts = [
     {
         type: 'input',
         message: 'Provide detail usage and example of your repo in this section.',
-        default: 'usage',
+        default: 'usage'
     },   
     {
         type: 'input',
         message: 'Provide details on contributors and how others can contribute to your project.',
-        default: 'usage',
-    },         
-]
+        default: 'contributing'
+    }, 
+    {
+        type: 'input',
+        message: 'Provide details on any test written for your project.',
+        default: 'tests'
+    },        
+    {
+        type: 'list',
+        message: 'Choose one of the following licensing for your project.',
+        choices: ['Apache License 2.0','Boost Software License 1.0','GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3','MIT','Mozilla Public License 2.0','The Unlicense'],
+        name: 'license'
+    }   
+];
+
 
