@@ -48,22 +48,22 @@ const prompts = [
     {
         type: 'input',
         message: 'What are the steps to install your project? (Be detailed)',
-        default: 'installation',
+        name: 'installation',
     },
     {
         type: 'input',
         message: 'Provide detail usage and example of your repo in this section.',
-        default: 'usage'
+        name: 'usage'
     },   
     {
         type: 'input',
         message: 'Provide details on contributors and how others can contribute to your project.',
-        default: 'contributing'
+        name: 'contributing'
     }, 
     {
         type: 'input',
         message: 'Provide details on any test written for your project.',
-        default: 'tests'
+        name: 'tests'
     },        
     {
         type: 'list',
