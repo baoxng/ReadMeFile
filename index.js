@@ -2,6 +2,8 @@
 const inquirer = require('inquirer');
 const fs= require ('fs');
 const generateMarkdown = require('./utilities/generateMarkdown');
+const api = require('./utilities/api');
+const util= require('util');
 
 //Prompts and questions
 const prompts = [
@@ -82,3 +84,33 @@ function writeToFile(fileName, data) {
 }
 
 
+const writeFileAsync = util.promisify(writeToFile);
+
+
+// Main function
+async function init() {
+    try {
+
+        // Prompt Inquirer questions
+        const userResponse = await inquirer.prompt(prompts);
+        console.log("Your responses: ", userResponse);
+        console.log("Thank you for your responses! Fetching your GitHub data next...");
+    
+        // Call GitHub api for user info
+        const userInfo = await api.getUser(userResponse);
+        console.log("Your GitHub user info: ", userInfo);
+    
+        // Pass Inquirer userResponses and GitHub userInfo to generateMarkdown
+        console.log("Generating your README next...")
+        const markdown = generateMarkdown(userResponse, userInfo);
+        console.log(markdown);
+    
+        // Write markdown to file
+        await writeFileAsync('ExampleREADME.md', markdown);
+
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+init();
