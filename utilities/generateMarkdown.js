@@ -14,7 +14,7 @@ function generateMarkdown(userResponse, userInfo) {
     if (userResponse.contributing !== '') { toc += `
     * [Contributing](#contributing)` };
   
-    if (userResponses.tests !== '') { toc += `
+    if (userResponse.tests !== '') { toc += `
     * [Tests](#tests)` };
   
   

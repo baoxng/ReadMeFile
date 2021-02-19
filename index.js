@@ -21,9 +21,22 @@ const prompts = [
     },
     {
         type: 'input',
-        message: 'What is your Github repo title?',
+        message: 'What is your Github repo?',
         name: 'repo',
         default: 'ReadMe-Generator',
+        validate: function(answer) {
+        if (answer.length < 1){
+            return console.log('Must have a valid GitHub repo for badge.')
+        }
+        return true; 
+        }
+
+    },
+    {
+        type: 'input',
+        message: 'What is the title of your project?',
+        name: 'title',
+        default: 'Project Title',
         validate: function(answer) {
         if (answer.length < 1){
             return console.log('Must have a valid GitHub repo for badge.')
@@ -94,7 +107,7 @@ async function init() {
         // Prompt Inquirer questions
         const userResponse = await inquirer.prompt(prompts);
         console.log("Your responses: ", userResponse);
-        console.log("Thank you for your responses! Fetching your GitHub data next...");
+        console.log("Thank you for your responses! Fetching your GitHub data...");
     
         // Call GitHub api for user info
         const userInfo = await api.getUser(userResponse);
