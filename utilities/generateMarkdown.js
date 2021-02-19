@@ -1,4 +1,4 @@
-const { write } = require("fs");
+//const { write } = require("fs");
 
 function generateMarkdown(userResponse, userInfo) {
 
