@@ -27,4 +27,5 @@ This project was challenging and differed from the usual pace, because everythin
 ---
 ## Demo
 
+[Demo Video Here](https://youtu.be/cRmT3zHQjyI)
 ![demo.gif](/demo.gif)
